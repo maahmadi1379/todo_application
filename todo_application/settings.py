@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'favicon',
     'drf_yasg',
+
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,7 @@ STATIC_ROOT = config('STATIC_ROOT')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-FAVICON_PATH = STATIC_URL + 'favicon.png'
+
 
 SWAGGER_SETTINGS = {
     'DEFAULT_INFO': {
