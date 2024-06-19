@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 
@@ -12,6 +13,7 @@ from utils.paginations import StandardResultsSetPagination
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.soft_delete_objects.all()
     serializer_class = TaskSerializer
+    permission_classes = (IsAuthenticated, )
     pagination_class = StandardResultsSetPagination
 
     @swagger_auto_schema(
@@ -36,6 +38,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.soft_delete_objects.all()
     serializer_class = NoteSerializer
+    permission_classes = (IsAuthenticated, )
     pagination_class = StandardResultsSetPagination
 
     @swagger_auto_schema(
